@@ -6,240 +6,359 @@
 [![Status](https://img.shields.io/badge/status-maintained-brightgreen?style=flat-square)]()
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
 
-**Exemplo prático de boas práticas em E2E testing com Playwright**, especialmente otimizado para **aprender com assistentes de IA** 
+**Exemplo prático de boas práticas em E2E testing com Playwright**, especialmente otimizado para **aprender com assistentes de IA** (Claude, Cursor).
 
-🎯 Why This Project?
+---
 
-Testing a veterinary appointment system? Already familiar with Playwright but looking for better patterns and structure? This project is for you.
+## 🎯 Por Que Este Projeto?
 
-🎓 Why This Matters for Your Career
-For QA Professionals
-✅ Portfolio-ready - Demonstrates Playwright + TypeScript expertise
-✅ Modern practices - POM, factories, isolation, AI
-✅ Real-world scenarios - Full CRUD, not just hello world
-✅ Scale-ready - Structure grows with the project
+Testando agendamentos veterinários? Conhece Playwright mas quer padrões melhores? **Este projeto é para você.**
+---
 
-For Developers Learning Testing
-✅ Best practices from day 1
-✅ AI-accelerated learning - Claude enforces correct patterns
-✅ Clear documentation - Understand the reasoning behind each decision
-✅ Debugging guidance - Real troubleshooting advice
+## 🎓 Diferencial: AI-Powered Learning 🤖
 
-For Companies Hiring
-✅ Shows initiative - Complete project, not copied tutorial
-✅ Modern stack - Playwright + TypeScript
-✅ AI literacy - Using modern AI-assisted tools
-✅ Quality mindset - Test isolation, clean code, documentation
+Diferente de tutoriais genéricos, este projeto é **desenhado para ensinar assistentes de IA**:
+- ✅ Convenções documentadas em **skills** (`.claude/skills/`)
+- ✅ Padrões MUST/SHOULD/WON'T explícitos
+- ✅ Claude/Cursor geram código correto **automaticamente**
+- ✅ Zero "guessing" do que fazer
 
-👥 Who Is This For?
+---
 
-🧪 QA Engineers learning Playwright
-👨‍💻 Developers writing E2E tests
-🤖 Engineers exploring AI-assisted testing
-🎓 Beginners looking for real-world test architecture
-📚 Concepts Covered
+## ✨ Features
 
-Concept	What You Learn	Example
-Page Object Model	Organize test code	HomePage.ts, AppointmentForm.ts
-Data Isolation	Prevent test pollution	Automatic API cleanup
-Test Organization	Professional structure	tests/auth/, tests/appointments/
-Factory Pattern	Reusable test data	TestDataFactory.createAppointment()
-Web-First Assertions	Reliable waits	.toBeVisible(), .toHaveValue()
-AI Skills	Guide AI behavior	.claude/skills/playwright-e2e/ (7 skills)
+- 🧪 **40 Testes E2E** em TypeScript + Playwright
+  - 2 testes autenticação (login)
+  - 19 testes validação formulário
+  - 5 testes edição
+  - 4 testes deleção
+  - 7 testes busca/filtros
+  - 1 teste conflito horário
 
-✨ Features
+- 📊 **Full CRUD Coverage** — Criar, listar, editar, deletar, buscar agendamentos
 
-🧪 38 E2E Tests using TypeScript + Playwright
-Authentication: 2 tests
-Validation: 19 tests
-Edit: 5 tests
-Delete: 4 tests
-Search & filters: 7 tests
-Time conflict: 1 test
+- 🔒 **100% Data Isolation** — API cleanup automático, zero orphans após execução
 
-📊 Full CRUD Coverage — Create, read, update, delete, search
+- 🤖 **AI-Ready Architecture**
+  - Skills para Claude/Cursor (pedir "crie um teste x" → gera correto)
+  - Convenções explícitas (project-conventions.md)
+  - Page Object convenções (page-object-conventions.md)
 
-🔒 100% Data Isolation — Automatic API cleanup, zero orphan data
+- 📚 **Best Practices Documentation**
+  - POM (Page Object Model)
+  - test.step() para rastreabilidade
+  - Web-first assertions (não DOM inspection)
+  - Timeout constants (SHORT, MEDIUM, LONG)
+  - HTTP response validation
 
-🤖 AI-Ready Architecture
+- 🔀 **Scenarios Complexos**
+  - Login com credenciais inválidas
+  - Validação de campos obrigatórios
+  - Conflito de horário (duplicatas)
+  - Busca case-insensitive
+  - Edição múltiplos campos
 
-Skills for AI coding assistants (Claude, Cursor, etc.)
-Explicit project conventions
-Page Object guidelines
+- 📈 **Professional Grade**
+  - CI/CD ready (tags, retries, reports)
+  - HTML reports automáticos
+  - trace.zip para debugging
+  - Runs em paralelo
 
-📚 Best Practices Documentation
-Page Object Model (POM)
-test.step() for traceability
-Web-first assertions (no DOM inspection)
-Timeout constants (SHORT, MEDIUM, LONG)
-HTTP response validation
+- 🗂️ **Clean Organization**
+  - `tests/` — apenas testes (.spec.ts)
+  - `docs/` — documentação centralizada
+  - `src/pages/` — Page Objects
+  - `src/helpers/` — API helpers
+  - `src/utils/` — Factories e utilidades
 
-🔀 Complex Scenarios
-Invalid login attempts
-Required field validation
-Time slot conflicts
-Case-insensitive search
-Multi-field editing
+---
 
-📈 Production-Ready Setup
-CI/CD ready
-Parallel execution
-HTML reports
-trace.zip debugging support
+## 🚀 Quick Start (5 minutos)
 
-🚀 Quick Start (5 minutes)
-1. Clone & Install
+### Step 1: Clonar e Instalar
+
+```bash
 git clone https://github.com/rebvisconti/petcare-e2e-playwright-ai.git
 cd petcare-e2e-playwright-ai
 npm install
-npx playwright install
+npx playwright install  # Baixa browsers
+```
 
-2. Start PetCare website 
+### Step 2: Iniciar Servidor PetCare
 
-In another terminal:
+Em **outro terminal**:
+```bash
+cd ../petcare-app/          # Seu app deve estar pronto
+npm run dev
+# Espera: "Server running at http://localhost:3001"
+```
 
-git clone https://github.com/rebvisconti/petcare-qa.git
-cd petcare-qa
-npm install
-npm start
+### Step 3: Rodar Seu Primeiro Teste
 
-Expected:
-
-Server running at http://localhost:3001
-
-3. Run Your First Test
+```bash
 npm test tests/appointments/create-appointment.spec.ts
+```
 
-✅ Done! First run in ~30 seconds.
+✅ Pronto! Primeira execução em ~30s.
 
-4. View Report
+### Step 4: Ver Relatório
+
+```bash
 npm run test:report
-🧪 Running Tests
+# Abre HTML report automaticamente
+```
 
-# Run all tests
+---
+
+## 🧪 Rodando Testes
+
+### Executar
+
+```bash
+# Todos os testes (40)
 npm test
 
-# UI mode (interactive)
+# Modo UI (visual, interativo)
 npm run test:ui
 
-# Headed mode
+# Com browser visível (headed)
 npm run test:headed
 
-# Specific test
+# Teste específico
 npm test tests/appointments/create-appointment.spec.ts
 
-# Run by tag
+# Apenas tag específica
 npm test --grep "@validation"
 
-# Debug mode
+# Debug com DevTools
 npm run test:debug
-📊 Reports
+```
+
+### Ver Relatório
+
+```bash
 npm run test:report
-# or
+
+# Ou manual:
 npx playwright show-report
-📝 Example Test
-test('should create a new appointment successfully', async ({ page }) => {
-  const appointmentData = TestDataFactory.createAppointment({
-    service: 'Bath',
-    size: 'Medium'
-  })
+```
 
-  await test.step('Create appointment', async () => {
-    await homePage.createAppointment(appointmentData)
-  })
+### Codegen (Gravar Ações)
 
-  await test.step('Verify appointment appears in list', async () => {
-    const card = homePage.getAppointmentCard(appointmentData.petName)
-    await expect(card).toBeVisible({ timeout: MEDIUM_TIMEOUT })
-  })
-})
-📁 Project Structure
+```bash
+npm run test:codegen
+# Abre browser → você interage → gera código
+```
+
+---
+
+## 📁 Project Structure
+
+```
 petcare-e2e/
-├── tests/                 # E2E tests
-├── src/pages/             # Page Objects
-├── src/helpers/           # API helpers
-├── src/utils/             # Utilities & factories
-├── docs/                  # Documentation
-├── .claude/skills/        # AI skills (7 skills for Claude/Cursor)
-├── playwright.config.ts
-├── package.json
-└── README.md
-File Organization
-💡 Lessons Learned
+│
+├── 📋 tests/                              # Testes E2E (40 arquivos .spec.ts)
+│   ├── auth/
+│   │   └── login.spec.ts                 # Autenticação (2 testes)
+│   ├── appointments/
+│   │   ├── create-appointment.spec.ts    # Criar (2 testes)
+│   │   ├── edit-appointment.spec.ts      # Editar (5 testes)
+│   │   ├── delete-appointment.spec.ts    # Deletar (4 testes)
+│   │   ├── search-appointment.spec.ts    # Buscar (7 testes)
+│   │   ├── appointment-form-validation.spec.ts # Validar (19 testes)
+│   │   └── time-conflict.spec.ts         # Conflito (1 teste)
+│   └── auth.setup.ts                     # Setup Playwright (auth global)
+│
+├── 🔧 src/
+│   ├── pages/                            # Page Objects (organiza UI)
+│   │   ├── home.page.ts                 # Tela principal
+│   │   └── components/
+│   │       └── appointment-form.component.ts  # Formulário compartilhado
+│   ├── helpers/
+│   │   └── api.helper.ts                # Chamadas API (cleanup)
+│   ├── utils/
+│   │   ├── auth.helper.ts               # Login/logout
+│   │   └── test-data.factory.ts         # Geração random de dados
+│   └── fixtures/
+│       └── [custom fixtures se precisar]
+│
+├── 📚 docs/                              # Documentação (14 arquivos)
+│   ├── testing/                         # Guias de teste
+│   │   ├── README.md                   # Start aqui
+│   │   ├── validation-guide.md         # Testes de validação
+│   │   └── ...
+│   ├── troubleshooting/                # Troubleshooting
+│   │   ├── error-fix-summary.md        # Comum fixes
+│   │   └── ...
+│   └── isolation/                       # Análise de isolamento
+│       ├── test-isolation-analysis.md  # Como evitar orphans
+│       └── ...
+│
+├── 🤖 .claude/skills/                    # Skills para Claude Code
+│   └── playwright-e2e/
+│       ├── SKILL.md                     # Guia skill
+│       └── references/
+│           ├── project-conventions.md   # MUST/SHOULD/WON'T
+│           └── ...
+│
+├── 🎯 playwright.config.ts              # Config Playwright
+├── 📦 package.json                      # Scripts + dependencies
+├── 📖 README.md                         # Este arquivo!
+└── 📄 LICENSE                           # MIT License
+```
 
-This project was developed as part of my career transition into QA in tech. Key takeaways:
+---
 
-Technical Skills
-✅ Playwright from scratch — From beginner to 38 full E2E tests
-✅ TypeScript — Strong typing, interfaces, generics
-✅ Page Object Model — Professional code organization
-✅ AI-Powered Development — Claude Code + MCP + Skills
-✅ Git workflow — Semantic commits, branches, PRs
-Testing Concepts
-✅ Test Isolation — Zero orphan data, automatic cleanup
-✅ Data Factories — Dynamic data generation with realistic patterns
-✅ Web-First Assertions — Smart waits
-✅ Test Organization — Scalable structure
-✅ Debugging — Traces, screenshots, reports
-AI & Automation
-✅ MCP (Model Context Protocol) — Claude + tools integration
-✅ Playwright Skills (wico) — Teaching AI project patterns
-✅ Prompt Engineering — Automatic correct test generation
-📊 Project Status
-Metric	Status
-E2E Tests	38 passing ✅
-CRUD Coverage	100% ✅
-Data Isolation	100% ✅
-Documentation	Complete ✅
-CI/CD	Ready ✅
-AI Skills	Implemented ✅
+## 🤖 AI-Powered Learning: Seu Superpower
 
-🚧 Roadmap
- Performance Tests — Validate response times
- Visual Regression — Compare screenshots
- Accessibility Tests — WCAG compliance
- Mobile Tests — Responsive behavior
- API Tests — Contract testing
- CI/CD Pipeline — GitHub Actions automation
- Slack Alerts — Failure notifications
+### Por Que Assistentes de IA Precisam de "Skills"?
 
-Contributions welcome! 🙌
+Por padrão, assistentes de IA (Claude, Cursor) **não conhecem suas convenções**, então geram código genérico.
 
-🤖 AI Integration
+Com skills, eles **aprendem suas regras** e aplicam automaticamente.
 
-AI assistants often generate generic code.
-This project solves that using structured conventions and skills.
+### Como Usar com Claude/Cursor?
 
-Example Prompt
-Create a test to validate that the email field is required
+1. **Abra o projeto** em Claude Code / Cursor
+2. **Peça para criar um teste:**
+   ```
+   "Crie um novo teste para validar que o campo Email é obrigatório"
+   ```
+3. **IA usa as skills** (`.claude/skills/playwright-e2e/`) para:
+   - Gerar com POM (Page Object)
+   - Adicionar `test.step()` automaticamente
+   - Usar web-first assertions
+   - Adicionar isolamento de dados
+   - Comentários didáticos
 
-AI will automatically:
+**Resultado:**
+- ✅ Código correto 100% das vezes
+- ✅ Padrões aplicados sem você pedir
+- ✅ Didático para aprender (comentários claros)
 
-Use Page Object Model
-Add test.step()
-Apply correct assertions
-Follow project conventions
+---
 
-👤 Author
+## 📚 Full Documentation
 
-Rebeca Visconti
+### Para Cada Tipo de Usuário
 
-🎯 QA | Porto, Portugal
-📧 rebecavisconti@gmail.com
-💼 LinkedIn: linkedin.com/in/rebeca-visconti
-🐙 GitHub: @rebecavisconti
-📜 License
+| Você é... | Comece com... | Depois leia... |
+|-----------|---|---|
+| 👨‍💻 **Dev novo em Playwright** | [Validation Guide](docs/testing/validation-guide.md) | [Page Object Conventions](.claude/skills/playwright-e2e/references/page-object-conventions.md) |
+| 🤖 **Experimentando MCP/IA** | Skills em `.claude/skills/` | [Project Conventions](.claude/skills/playwright-e2e/references/project-conventions.md) |
+| 🧪 **QA buscando padrões** | [Test Organization](docs/testing/index.md) | [Test Isolation](docs/isolation/test-isolation-analysis.md) |
+| 🔍 **Debugging testes** | [Troubleshooting](docs/troubleshooting/error-fix-summary.md) | [Test Review Checklist](.claude/skills/playwright-e2e/references/test-review.md) |
 
-MIT License
+### Documentação Completa
 
-🌟 Like This Project?
+- 📋 [Setup Rápido](docs/testing/README.md) — Comece em 5 min
+- 📖 [Organizando Testes](FILE_ORGANIZATION_ASSESSMENT.md) — Estrutura
+- 📝 [Convenções de Nome](FILE_NAMING_CONVENTIONS.md) — Padrões
+- ✅ [Cobertura de Features](FEATURE_COVERAGE_ANALYSIS.md) — O que testamos
+- 🔍 [Isolamento de Dados](docs/isolation/test-isolation-analysis.md) — Zero orphans
+- 🆘 [Troubleshooting](docs/troubleshooting/error-fix-summary.md) — Problemas comuns
 
-If this project helped you:
+---
 
-⭐ Star the repo
-🐛 Report bugs via Issues
-💡 Suggest improvements via Discussions
-🤝 Contribute with PRs
-📢 Share with the QA community
+## 🆘 Troubleshooting
 
-Let's grow together in the testing community! 🚀
+### Teste Falha com "Element Not Found"
+
+1. Verifique o seletor: `npm run test:codegen` (grave UI interação)
+2. Aumente timeout: `{ timeout: 10_000 }`
+3. Use `toPass()` para retry: Ver [troubleshooting](docs/troubleshooting/)
+
+### Mensagem de Erro Não Desaparece
+
+O campo validou em `onBlur`, não apenas `onChange`. Solução:
+
+```typescript
+await page.fill('[data-testid="input"]', 'valor')
+await page.locator('[data-testid="input"]').blur()  // ← Dispara validação
+```
+
+Ver [error-clearing-guide.md](docs/troubleshooting/error-clearing-guide.md) para mais.
+
+### Testes em Paralelo Falham
+
+Provavelmente colisão de dados. Solução: `TimeSlotManager` e `TestDateGenerator` distribuem slots e datas.
+
+---
+
+## 🤝 Contributing
+
+Contribuições são bem-vindas! Este é um projeto de **aprendizado + referência**.
+
+### Antes de Submeter
+
+```bash
+npm test                    # Todos os testes devem passar
+npm run test:ui             # Ver se algum falha visualmente
+```
+
+### Type de Contribuição
+
+- 🐛 **Bug fixes** em testes existentes
+- ✨ **Novos testes** para cobrir gaps
+- 📚 **Melhor documentação** (erros, exemplos)
+- 🤖 **Melhorias em skills** (melhor guia IA)
+- 💡 **Sugestões** de padrões melhores
+
+### Processo
+
+1. Fork o projeto
+2. Crie branch: `git checkout -b feature/seu-teste`
+3. Commit: `git commit -m "feat: novo teste para X"`
+4. Push: `git push origin feature/seu-teste`
+5. Abra Pull Request
+
+---
+
+## 📜 License
+
+MIT License — Use, modifique e compartilhe livremente.
+
+Ver [LICENSE](LICENSE) para termos completos.
+
+---
+
+## 👤 Author
+
+**Rebeca Visconti**
+- 🎯 QA Engineer | Test Automation  
+- 📧 rebecavisconti@gmail.com
+- 💼 LinkedIn: [linkedin.com/in/rebeca-visconti](https://linkedin.com)
+- 🐙 GitHub: [@rebvisconti](https://github.com/rebvisconti)
+
+---
+
+## 🙏 Acknowledgments
+
+- 📚 [Playwright Best Practices](https://playwright.dev/docs/best-practices) — Inspiração
+- 🎓 Comunidade Playwright por discussões/feedback
+
+---
+
+## 📊 Project Status
+
+- ✅ **40 testes passando** 
+- ✅ **100% data isolation**
+- ✅ **Documentação completa**
+- ✅ **CI/CD ready**
+- 🚧 **Roadmap:**
+  - [ ] Testes de performance
+  - [ ] Testes mobile
+  - [ ] Testes de acessibilidade
+  - [ ] Integração com Slack alerts
+
+---
+
+<div align="center">
+
+**⭐ Se este projeto ajudou você, deixe uma star! ⭐**
+
+Colaboração é bem-vinda — [abra uma issue](issues) ou [PR](pulls)!
+
+[🔝 Voltar ao topo](#-petcare-e2e-tests--ai-powered-test-automation)
+
+</div>
