@@ -1,0 +1,23 @@
+{
+  "name": "petcare-e2e-playwright-ai",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Testes end-to-end automatizados para o sistema PetCare usando Playwright.",
+  "devDependencies": {
+    "@faker-js/faker": "^9.9.0",
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.5.0"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "playwright": "^1.58.2",
+    "playwright-core": "^1.58.2",
+    "undici-types": "^7.18.2"
+  }
+}
