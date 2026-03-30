@@ -1,9 +1,9 @@
 # 🐾 PetCare E2E Tests — AI-Powered Test Automation
 
-[![Tests](https://img.shields.io/badge/tests-40-brightgreen?style=flat-square)](tests)
+[![Tests](https://img.shields.io/badge/tests-38-brightgreen?style=flat-square)](tests)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat-square)](https://www.typescriptlang.org/)
 [![Playwright](https://img.shields.io/badge/Playwright-1.40-green?style=flat-square)](https://playwright.dev/)
-[![Status](https://img.shields.io/badge/status-maintained-brightgreen?style=flat-square)]()
+[![AI-Powered](https://img.shields.io/badge/AI--Powered-Claude%20%2B%20MCP-purple?style=flat-square)]()
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
 
 **Exemplo prático de boas práticas em E2E testing com Playwright**, especialmente otimizado para **aprender com assistentes de IA** (Claude, Cursor).
@@ -13,6 +13,7 @@
 ## 🎯 Por Que Este Projeto?
 
 Testando agendamentos veterinários? Conhece Playwright mas quer padrões melhores? **Este projeto é para você.**
+
 ---
 
 ## 🎓 Diferencial: AI-Powered Learning 🤖
@@ -27,7 +28,7 @@ Diferente de tutoriais genéricos, este projeto é **desenhado para ensinar assi
 
 ## ✨ Features
 
-- 🧪 **40 Testes E2E** em TypeScript + Playwright
+- 🧪 **38 Testes E2E** em TypeScript + Playwright
   - 2 testes autenticação (login)
   - 19 testes validação formulário
   - 5 testes edição
@@ -88,8 +89,10 @@ npx playwright install  # Baixa browsers
 
 Em **outro terminal**:
 ```bash
-cd ../petcare-app/          # Seu app deve estar pronto
-npm run dev
+git clone https://github.com/rebvisconti/petcare-qa.git
+cd petcare-qa
+npm install
+npm start
 # Espera: "Server running at http://localhost:3001"
 ```
 
@@ -157,7 +160,7 @@ npm run test:codegen
 ```
 petcare-e2e/
 │
-├── 📋 tests/                              # Testes E2E (40 arquivos .spec.ts)
+├── 📋 tests/                              # Testes E2E (38 arquivos .spec.ts)
 │   ├── auth/
 │   │   └── login.spec.ts                 # Autenticação (2 testes)
 │   ├── appointments/
@@ -198,7 +201,7 @@ petcare-e2e/
 │   └── playwright-e2e/
 │       ├── SKILL.md                     # Guia skill
 │       └── references/
-│           ├── project-conventions.md   # MUST/SHOULD/WON'T
+│           ├── project-conventions.md   
 │           └── ...
 │
 ├── 🎯 playwright.config.ts              # Config Playwright
@@ -341,10 +344,9 @@ Ver [LICENSE](LICENSE) para termos completos.
 
 ## 📊 Project Status
 
-- ✅ **40 testes passando** 
+- ✅ **38 testes passando** 
 - ✅ **100% data isolation**
 - ✅ **Documentação completa**
-- ✅ **CI/CD ready**
 - 🚧 **Roadmap:**
   - [ ] Testes de performance
   - [ ] Testes mobile
