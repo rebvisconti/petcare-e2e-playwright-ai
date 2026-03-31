@@ -3,7 +3,7 @@
 [![Tests](https://img.shields.io/badge/tests-38-brightgreen?style=flat-square)](tests)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat-square)](https://www.typescriptlang.org/)
 [![Playwright](https://img.shields.io/badge/Playwright-1.40-green?style=flat-square)](https://playwright.dev/)
-[![AI-Powered](https://img.shields.io/badge/AI--Powered-Claude%20%2B%20MCP-purple?style=flat-square)]()
+[![AI-Powered](https://img.shields.io/badge/AI--Powered-Claude%20%2B%20Skills-purple?style=flat-square)]()
 [![Status](https://img.shields.io/badge/status-maintained-brightgreen?style=flat-square)]()
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
 
@@ -412,7 +412,7 @@ npx wico-playwright-agent-skills init
 | You are... | Start with... | Then read... |
 |------------|---------------|--------------|
 | 👨‍💻 **Dev new to Playwright** | [Validation Guide](docs/testing/validation-guide.md) | [Page Object Conventions](.claude/skills/playwright-e2e/references/page-object-conventions.md) |
-| 🤖 **Experimenting with MCP/AI** | Skills in `.claude/skills/` | [Project Conventions](.claude/skills/playwright-e2e/references/project-conventions.md) |
+| 🤖 **Experimenting with AI** | Skills in `.claude/skills/` | [Project Conventions](.claude/skills/playwright-e2e/references/project-conventions.md) |
 | 🧪 **QA seeking patterns** | [Test Organization](docs/testing/index.md) | [Test Isolation](docs/isolation/test-isolation-analysis.md) |
 | 🔍 **Debugging tests** | [Troubleshooting](docs/troubleshooting/error-fix-summary.md) | [Test Review Checklist](.claude/skills/playwright-e2e/references/test-review.md) |
 | 🎓 **Learning testing** | [Quick Reference](docs/testing/quick-reference.md) | [Validation Tests](docs/testing/validation-tests.md) |
@@ -436,7 +436,7 @@ This project was developed as part of my career transition to QA in tech. Key le
 - ✅ **Playwright from scratch** - From beginner to creating 38 complete E2E tests
 - ✅ **TypeScript** - Strong typing, interfaces, generics
 - ✅ **Page Object Model** - Professional code organization
-- ✅ **AI-Powered Development** - Claude Code + MCP + Skills
+- ✅ **AI-Powered Development** - Claude Code + Skills
 - ✅ **Git workflow** - Semantic commits, branches, PRs
 
 ### Testing Concepts
@@ -447,9 +447,10 @@ This project was developed as part of my career transition to QA in tech. Key le
 - ✅ **Debugging** - Traces, screenshots, reports
 
 ### AI & Automation
-- ✅ **MCP (Model Context Protocol)** - Claude + tools integration
-- ✅ **Playwright Skills (wico)** - Teaching AI about the project
+- ✅ **Claude AI Assistant** - VSCode extension for code generation
+- ✅ **Playwright Skills (wico)** - Teaching AI about project conventions
 - ✅ **Prompt Engineering** - Asking for correct tests automatically
+- ✅ **AI-Powered Testing** - Skills-based code generation
 
 ### Challenges Overcome
 - 🎯 HTML values vs display text (lowercase `'banho'` vs "Banho")
@@ -458,7 +459,6 @@ This project was developed as part of my career transition to QA in tech. Key le
 - 🎯 Authentication setup - Storage state to reuse login
 - 🎯 Strict mode violations - Unique names in tests
 
-**Development time:** 3 weeks  
 **Biggest challenge:** Understanding when to validate by API vs UI  
 **Biggest win:** Creating complete test suite with AI assistance
 
