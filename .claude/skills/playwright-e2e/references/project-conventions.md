@@ -267,3 +267,4 @@ this.page.waitForResponse(
               response.request().method() === 'PUT'
 )
 ```
+
